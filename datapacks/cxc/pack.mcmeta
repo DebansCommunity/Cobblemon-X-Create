@@ -6,7 +6,7 @@
       { "text": "X ", "color": "gray" },
       { "text": "Create", "color": "#FF8A00", "bold": true },
       { "text": "  •  Recipes\n", "color": "white" },
-      { "text": "v0.1.0-alpha", "color": "#7CFC00" }
+      { "text": "v0.0.1 Alpha", "color": "#7CFC00" }
     ]
   }
 }

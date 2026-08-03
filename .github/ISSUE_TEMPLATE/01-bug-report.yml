@@ -93,7 +93,8 @@ body:
       description: Does the bug happen on a fresh world or an existing one?
       options:
         - New world
-        - Existing world (created on a previous version)
+        - Existing world (created on the current version)
+        - Existing world (created on an older modpack version)
     validations:
       required: true
 

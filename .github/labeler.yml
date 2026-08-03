@@ -1,0 +1,18 @@
+# Config for the github/issue-labeler action.
+# Each key is a label name; the values are regex patterns matched against
+# the issue title + body. (?i) makes the match case-insensitive.
+
+crash:
+  - '(?i)\bcrash(ed|es|ing)?\b'
+  - '(?i)outofmemory'
+  - '(?i)\bexit code\b'
+  - '(?i)\bhs_err_pid\b'
+
+performance:
+  - '(?i)\b(lag|lags|lagging|laggy)\b'
+  - '(?i)\b(fps|tps)\b'
+  - '(?i)\b(stutter|stuttering|freeze|freezing|frozen)\b'
+  - '(?i)memory leak'
+
+server:
+  - '(?i)dedicated server'

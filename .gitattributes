@@ -1,0 +1,9 @@
+# Normalize line endings to LF for all text files (fixes CRLF warnings on Windows)
+* text=auto eol=lf
+
+# Treat these as binary (never touch line endings)
+*.png binary
+*.jpg binary
+*.jar binary
+*.zip binary
+*.ogg binary

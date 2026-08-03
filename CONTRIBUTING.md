@@ -65,7 +65,7 @@ This feedback helps us prioritize the upcoming overhaul.
 
 ## 💬 Need help, not reporting a bug?
 
-For general questions, installation help, or just to chat, join us on
-**[Discord](https://discord.gg/YOUR_INVITE)** instead of opening an issue.
+For general questions or installation help, please check the
+[Modrinth page](https://modrinth.com/modpack/cobblemon-x-create) first.
 
 Thanks for helping make the pack better! 🚀

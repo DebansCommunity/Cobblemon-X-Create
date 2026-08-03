@@ -1,0 +1,72 @@
+name: Validate Recipes
+
+on:
+  pull_request:
+    paths:
+      - '**.json'
+      - '**.js'
+  push:
+    branches: [master]
+    paths:
+      - '**.json'
+      - '**.js'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-json:
+    name: Validate JSON (datapack recipes)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate every JSON file
+        shell: bash
+        run: |
+          set -uo pipefail
+          fail=0
+          mapfile -t files < <(find . -type f -name '*.json' -not -path './.git/*')
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No JSON files found — nothing to validate."
+            exit 0
+          fi
+          for f in "${files[@]}"; do
+            if python3 -c "import json,sys; json.load(open(sys.argv[1], encoding='utf-8'))" "$f"; then
+              echo "OK   $f"
+            else
+              echo "::error file=$f::Invalid JSON syntax"
+              fail=1
+            fi
+          done
+          exit $fail
+
+  validate-kubejs:
+    name: Validate KubeJS (.js syntax)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Syntax-check every JS file
+        shell: bash
+        run: |
+          set -uo pipefail
+          fail=0
+          mapfile -t files < <(find . -type f -name '*.js' -not -path './.git/*' -not -path './node_modules/*')
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No JS files found — nothing to validate."
+            exit 0
+          fi
+          for f in "${files[@]}"; do
+            if node --check "$f" 2>/tmp/err; then
+              echo "OK   $f"
+            else
+              echo "::error file=$f::$(cat /tmp/err | head -n 1)"
+              fail=1
+            fi
+          done
+          exit $fail

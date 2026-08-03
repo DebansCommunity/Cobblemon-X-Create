@@ -51,6 +51,52 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Where does the bug happen?
+      options:
+        - Singleplayer
+        - Multiplayer (dedicated server)
+        - Both
+    validations:
+      required: true
+
+  - type: dropdown
+    id: launcher
+    attributes:
+      label: Launcher
+      options:
+        - Modrinth App
+        - Prism Launcher
+        - CurseForge App
+        - ATLauncher
+        - MultiMC
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: ram
+    attributes:
+      label: Allocated RAM
+      description: How much memory is allocated to the instance (in the launcher settings)?
+      placeholder: "6 GB"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: world-type
+    attributes:
+      label: World
+      description: Does the bug happen on a fresh world or an existing one?
+      options:
+        - New world
+        - Existing world (created on a previous version)
+    validations:
+      required: true
+
   - type: textarea
     id: description
     attributes:

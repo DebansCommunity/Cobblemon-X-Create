@@ -1,11 +1,11 @@
 {
   "pack": {
-    "pack_format": 48,
+    "pack_format": 34,
     "description": [
       { "text": "Cobblemon ", "color": "#4FC3F7", "bold": true },
       { "text": "X ", "color": "gray" },
       { "text": "Create", "color": "#FF8A00", "bold": true },
-      { "text": "  •  Recipes\n", "color": "white" },
+      { "text": "\nRecipes ", "color": "white" },
       { "text": "v0.0.1 Alpha", "color": "#7CFC00" }
     ]
   }

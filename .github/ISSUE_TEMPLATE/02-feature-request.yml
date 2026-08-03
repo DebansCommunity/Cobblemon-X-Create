@@ -1,0 +1,66 @@
+name: "✨ Feature Request"
+description: Suggest a new mod, feature, or improvement.
+title: "[Suggestion]: "
+labels: ["enhancement", "status: needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your suggestion! 💡
+        Reminder: the modpack is in **Alpha** and we are focused on the stability of the **corepack**.
+        Some great ideas may be set aside temporarily to keep that priority.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have checked that a similar suggestion does not already exist.
+          required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Suggestion type
+      options:
+        - Adding a new mod
+        - New feature / mechanic
+        - Improving an existing feature
+        - Balancing
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: mod-link
+    attributes:
+      label: Mod link (if applicable)
+      description: Modrinth or CurseForge link of the proposed mod.
+      placeholder: "https://modrinth.com/mod/..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Need
+      description: What problem does this suggestion solve? Why would it be useful?
+      placeholder: "Currently it is difficult to... which makes automating... a pain."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe precisely what you would like to see added.
+    validations:
+      required: true
+
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility / Impact
+      description: Could this suggestion conflict with Create, Cobblemon, or the pack's balance?
+    validations:
+      required: false

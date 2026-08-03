@@ -1,0 +1,79 @@
+name: "⚙️ Recipe / Progression Issue"
+description: Report a broken or impossible recipe, or a blocker in progression.
+title: "[Recipe]: "
+labels: ["recipe", "status: needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This type of report is **crucial** for our modpack. 🔧
+        ⚠️ Note: we are planning a **massive recipe overhaul** after the corepack is stabilized.
+        Report what you find anyway — it helps us prioritize.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have checked via JEI/EMI/REI that no alternative recipe exists.
+          required: true
+        - label: This issue has not already been reported.
+          required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Type of problem
+      options:
+        - Impossible recipe (ingredient cannot be obtained)
+        - Recipe crashes / does not work
+        - Full progression blocker (softlock)
+        - Illogical / poorly balanced recipe
+        - Missing item or block in the game
+        - Recipe conflict (two recipes overwriting each other)
+    validations:
+      required: true
+
+  - type: input
+    id: item
+    attributes:
+      label: Item / Block involved
+      description: The exact name of the item or recipe in question.
+      placeholder: "Andesite Alloy, Poké Ball, etc."
+    validations:
+      required: true
+
+  - type: input
+    id: modpack-version
+    attributes:
+      label: Modpack version
+      placeholder: "0.3.1-alpha"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem description
+      description: Explain precisely the blocker or recipe error.
+    validations:
+      required: true
+
+  - type: textarea
+    id: chain
+    attributes:
+      label: Blocked progression chain
+      description: |
+        Which step leads to this blocker? What were you trying to craft, and what do you need for it?
+      placeholder: |
+        I want to craft X → I need Y → but Y requires X → impossible loop.
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots (JEI/EMI)
+      description: A screenshot of the recipe in question (the JEI/EMI interface, not the logs).
+    validations:
+      required: false

@@ -1,0 +1,101 @@
+name: "🐛 Bug Report"
+description: Report a crash, unexpected behavior, or instability in the modpack.
+title: "[Bug]: "
+labels: ["bug", "status: needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! 🙏
+        The modpack is in **Alpha** — our current focus is the stability of the corepack.
+        ⚠️ **Before you continue**, please check that this bug hasn't already been reported in the [existing issues](../issues?q=is%3Aissue).
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      description: Please confirm the following before submitting.
+      options:
+        - label: I have searched the existing issues and this bug has not been reported yet.
+          required: true
+        - label: I am using a clean installation (no mods manually added to the modpack).
+          required: true
+        - label: I am playing on the latest version available on Modrinth.
+          required: true
+
+  - type: input
+    id: modpack-version
+    attributes:
+      label: Modpack version
+      description: The exact version number shown on Modrinth (e.g. 0.3.1-alpha).
+      placeholder: "0.3.1-alpha"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: loader
+    attributes:
+      label: Mod Loader
+      options:
+        - NeoForge
+        - Forge
+    validations:
+      required: true
+
+  - type: input
+    id: loader-version
+    attributes:
+      label: Loader version
+      description: The exact NeoForge/Forge version you are using.
+      placeholder: "NeoForge 21.1.72"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug description
+      description: Clearly describe what is happening.
+      placeholder: The game crashes when I place a conveyor belt next to a Poké Ball...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: A precise, numbered list of the actions that lead to the bug.
+      placeholder: |
+        1. Go to '...'
+        2. Place '...'
+        3. Interact with '...'
+        4. Observe the crash / bug
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened normally?
+    validations:
+      required: true
+
+  - type: input
+    id: logs
+    attributes:
+      label: Logs / Crash report
+      description: |
+        ⚠️ **REQUIRED.** Paste a link to your logs via https://mclo.gs (recommended) or Pastebin.
+        ❌ Do NOT post screenshots of your logs — they are unreadable and can't be copied.
+      placeholder: "https://mclo.gs/xxxxxxx"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Screenshots (of the game, not the logs), machine specs, performance mods (Sodium/Embeddium), etc.
+    validations:
+      required: false
